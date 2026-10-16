@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2048e3"/>
+      <stop offset="100%" stop-color="#151e46"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#bg)"/>
+  <g transform="translate(10.239999999999998 10.239999999999998) scale(0.43520000000000003)" fill="none" stroke="#ffffff"
+     stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 클립보드 -->
+    <rect x="14" y="16" width="72" height="80" rx="10"/>
+    <rect x="36" y="5" width="28" height="18" rx="6" fill="#ffffff" stroke="none"/>
+    <!-- 체크 -->
+    <path d="M31 50 L44 63 L71 36"/>
+    <!-- 원가 라인 -->
+    <path d="M31 80 H69" stroke-width="6" opacity="0.75"/>
+  </g>
+</svg>

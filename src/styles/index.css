@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+@import './print.css';
+
+@theme {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', 'Noto Sans KR',
+    'Malgun Gothic', 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+
+  /* 브랜드 — 현장 공구 느낌의 딥 슬레이트 + 블루 */
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #d9e6ff;
+  --color-brand-200: #bcd3ff;
+  --color-brand-300: #8eb6ff;
+  --color-brand-400: #598eff;
+  --color-brand-500: #3366f5;
+  --color-brand-600: #2048e3;
+  --color-brand-700: #1a37b8;
+  --color-brand-800: #1b3192;
+  --color-brand-900: #1c2f73;
+  --color-brand-950: #151e46;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-slate-100 text-slate-900 antialiased;
+    @apply dark:bg-slate-950 dark:text-slate-100;
+    font-family: var(--font-sans);
+    /* 모바일에서 바운스 스크롤로 앱 셸이 밀리는 것 방지 */
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 숫자 입력에서 스피너 제거 — 현장에서 오조작 방지 */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  /* 금액·수량은 자릿수 흔들림 없이 */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@utility safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@utility safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,66 @@
+/* A4 결재/작업지시용 인쇄 레이아웃 — 리포트 화면에서 Ctrl+P 또는 [인쇄] 버튼 */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    height: auto !important;
+    background: #fff !important;
+    color: #000 !important;
+    overscroll-behavior: auto;
+  }
+
+  /* 앱 크롬(탭바·헤더·버튼)은 종이에서 전부 제거 */
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  /* 리포트 뷰만 전체 폭으로 펼침 */
+  .print-root {
+    position: static !important;
+    overflow: visible !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .print-page {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .print-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  /* 표·카드가 페이지 경계에서 잘리지 않게 */
+  table,
+  figure,
+  .avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  a[href]::after {
+    content: '';
+  }
+}
+
+.print-only {
+  display: none;
+}
